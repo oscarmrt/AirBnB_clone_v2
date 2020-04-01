@@ -13,6 +13,7 @@ import sqlalchemy
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, DateTime
 from sqlalchemy import ForeignKey
+from sqlalchemy.orm import sessionmaker
 
 all_classes = {"User": User, "State": State, "City": City,
                "Place": Place, "Review": Review, "Amenity": Amenity}
@@ -37,11 +38,32 @@ class DBStorage:
     def all(self, cls=None):
         """ all function to query on the current database session
         """
-        instances = {}
+        instance = {}
         for classes in all_classes:
             if cls is None or cls is all_classes[classes] or cls is classes:
                 objs = self.__session.query(all_classes[classes]).all()
                 for obj in objs:
                     key = obj.__class__.__name__ + '.' + obj.id
                     instances[key] = obj
-        return (instances)
+        return (instance)
+
+    def new(self, obj):
+        '''
+        Create a new obj
+        '''
+        self.__session.add(obj)
+
+    def save(self):
+        '''
+        commit changes
+        '''
+        self.__session.commit()
+
+    def delete(self, obj=None):
+        '''
+        Delete an obj
+        '''
+        if obj is not None:
+            self.__session.delete(obj)
+
+    
