@@ -14,6 +14,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, DateTime
 from sqlalchemy import ForeignKey
 
+all_classes = {"User": User, "State": State, "City": City,
+               "Place": Place, "Review": Review, "Amenity": Amenity}
 
 class DBStorage:
     """ DBStorage class
@@ -35,3 +37,11 @@ class DBStorage:
     def all(self, cls=None):
         """ all function to query on the current database session
         """
+        instances = {}
+        for classes in all_classes:
+            if cls is None or cls is all_classes[classes] or cls is classes:
+                objs = self.__session.query(all_classes[classes]).all()
+                for obj in objs:
+                    key = obj.__class__.__name__ + '.' + obj.id
+                    instances[key] = obj
+        return (instances)
