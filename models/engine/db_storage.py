@@ -13,7 +13,7 @@ import sqlalchemy
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, DateTime
 from sqlalchemy import ForeignKey
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, scoped_session
 
 all_classes = {"User": User, "State": State, "City": City,
                "Place": Place, "Review": Review, "Amenity": Amenity}
@@ -66,4 +66,11 @@ class DBStorage:
         if obj is not None:
             self.__session.delete(obj)
 
-    
+    def reload(self):
+        '''
+        Reload all obj
+        '''
+        Base.metadata.create_all(self.__engine)
+        Session = sessionmaker(bind=self.__engine, expire_on_commit=False, )
+        session = scoped_session(Session)
+        self.__session = session
