@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """This is the user class"""
 import models
-from models.base_model import BaseModel
+from models.base_model import BaseModel, Base
 from os import getenv
 from sqlalchemy import Column, String
 
 
-class User(BaseModel):
+class User(BaseModel, Base):
     """This is the class for user
     Attributes:
         email: email address
