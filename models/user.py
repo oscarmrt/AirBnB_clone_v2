@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """This is the user class"""
-from models.base_model import BaseModel, Base
+from models.base_model import BaseModel
 from os import getenv
 import sqlalchemy import Column, String
 
 
-class User(BaseModel, Base):
+class User(BaseModel):
     """This is the class for user
     Attributes:
         email: email address
@@ -13,14 +13,7 @@ class User(BaseModel, Base):
         first_name: first name
         last_name: last name
     """
-    __tablename__ = "users"
-    if getenv('HBNB_TYPE_STORAGE') == 'db':
-        email = Column(String(128), nullable=False)
-        password = Column(String(128), nullable=False)
-        first_name = Column(String(128), nullable=True)
-        last_name = Column(String(128), nullable=True)
-    else:
-        email = ""
-        password = ""
-        first_name = ""
-        last_name = ""
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""
