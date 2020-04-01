@@ -3,7 +3,6 @@
 from models.base_model import BaseModel, Base
 from os import getenv
 import sqlalchemy import Column, String
-from sqlalchemy.orn import relationship
 
 
 class User(BaseModel):
@@ -20,8 +19,8 @@ class User(BaseModel):
         password = Column(String(128), nullable=False)
         first_name = Column(String(128))
         last_name = Column(String(128))
-
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
+    else:
+        email = ""
+        password = ""
+        first_name = ""
+        last_name = ""
