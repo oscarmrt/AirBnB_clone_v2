@@ -16,7 +16,10 @@ from sqlalchemy import ForeignKey
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 
-all_classes = {"State": State, "City": City, "User": User, "Place": Place}
+
+all_classes = {"State": State, "City": City, "User": User,
+               "Place": Place, "Review": Review}
+
 
 class DBStorage:
     """ DBStorage class
