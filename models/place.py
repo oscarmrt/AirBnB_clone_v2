@@ -63,5 +63,5 @@ class Place(BaseModel, Base):
             all_r = models.storage.all(Review)
             for r in all_r.values():
                 if r.place_id == self.id:
-                    rlist.append = (r)
+                    rlist.append(r)
             return (rlist)
