@@ -77,18 +77,6 @@ class Place(BaseModel, Base):
             all_r = models.storage.all(Review)
             for r in all_r.values():
                 if r.place_id == self.id:
-                    rlist.append = (r)
-            return (rlist)
-
-    if models.storage_t != 'db':
-        @property
-        def review_method(self):
-            '''Getter atribute for review'''
-            from models.review import Review
-            rlist = []
-            all_r = models.storage.all(Review)
-            for r in all_r.values():
-                if r.place_id == self.id:
                     rlist.append(r)
             return (rlist)
 
