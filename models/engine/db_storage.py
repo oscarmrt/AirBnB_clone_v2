@@ -52,7 +52,7 @@ class DBStorage:
 
     def new(self, obj):
         '''
-        Create a new obj
+        Create a new obj method
         '''
         self.__session.add(obj)
 
