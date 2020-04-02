@@ -71,7 +71,7 @@ class Place(BaseModel, Base):
 
     if models.storage_t != 'db':
         @property
-        def review_method(self):
+        def reviews(self):
             '''Getter atribute for review'''
             from models.review import Review
             rlist = []
@@ -82,7 +82,7 @@ class Place(BaseModel, Base):
             return (rlist)
 
         @property
-        def amenity_method(self):
+        def amenities(self):
             '''Getter atribute for amenity'''
             from models.amenity import Amenity
             alist = []
@@ -93,7 +93,7 @@ class Place(BaseModel, Base):
             return (alist)
 
         @amenity_method.setter
-        def amenity_method(self, obj):
+        def amenities(self, obj):
             """set the ids of the amenities"""
             if type(obj)._name_ == "Amenity":
                 self.amenity_ids.append(obj.id)
