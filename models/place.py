@@ -89,7 +89,7 @@ class Place(BaseModel, Base):
             all_r = models.storage.all(Review)
             for r in all_r.values():
                 if r.place_id == self.id:
-                    rlist.append = (r)
+                    rlist.append(r)
             return (rlist)
 
         @property
@@ -100,5 +100,5 @@ class Place(BaseModel, Base):
             all_a = models.storage.all(Amenity)
             for a in all_a.values():
                 if a.place_id == self.id:
-                    alist.append = (a)
+                    alist.append(a)
             return (alist)
