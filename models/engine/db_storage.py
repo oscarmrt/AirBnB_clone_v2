@@ -17,7 +17,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 
 
-all_classes = {"State": State, "City": City, "User": User,
+all_classes = {"Amenity": Amenity, "State": State, "City": City, "User": User,
                "Place": Place, "Review": Review}
 
 
