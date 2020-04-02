@@ -18,11 +18,11 @@ if models.storage_t == 'db':
                           Column('place_id', String(60),
                                  ForeignKey('places.id', onupdate='CASCADE',
                                             ondelete='CASCADE'),
-                                 primary_key=True),
+                                 primary_key=True, nullable=False),
                           Column('amenity_id', String(60),
                                  ForeignKey('amenities.id', onupdate='CASCADE',
                                             ondelete='CASCADE'),
-                                 primary_key=True))
+                                 primary_key=True, nullable=False))
 
 
 class Place(BaseModel, Base):
@@ -53,8 +53,8 @@ class Place(BaseModel, Base):
         latitude = Column(Float, nullable=True)
         longitude = Column(Float, nullable=True)
         reviews = relationship("Review", backref="place")
-        amenities = relationship("Amenity", secondary='place_amenity',
-                                 backref='place_amenities',
+        amenities = relationship("Amenity",
+                                 secondary=place_amenity,
                                  viewonly=False)
     else:
         city_id = ""
@@ -91,3 +91,9 @@ class Place(BaseModel, Base):
                 if a.place_id == self.id:
                     alist.append(a)
             return (alist)
+
+        @amenity_method.setter
+        def amenity_method(self, obj):
+            """set the ids of the amenities"""
+            if type(obj)._name_ == "Amenity":
+                self.amenity_ids.append(obj.id)

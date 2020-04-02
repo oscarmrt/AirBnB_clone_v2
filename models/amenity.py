@@ -5,6 +5,7 @@ from models.base_model import BaseModel, Base
 import sqlalchemy
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
+from models.place import Place, place_amenity
 
 
 class Amenity(BaseModel, Base):
@@ -15,5 +16,6 @@ class Amenity(BaseModel, Base):
     if models.storage_t == 'db':
         __tablename__ = 'amenities'
         name = Column(String(128), nullable=False)
+        place_amenities = relationship("Place", secondary=place_amenity)
     else:
         name = ""
