@@ -11,6 +11,7 @@ from sqlalchemy import Column, String, DateTime, Integer, Float
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
 
+
 class Amenity(BaseModel, Base):
     """This is the class for Amenity
     Attributes:
@@ -18,6 +19,6 @@ class Amenity(BaseModel, Base):
     """
     if models.storage_t == 'db':
         __tablename__ = 'amenities'
-            name = Column(String(128), nullable=False)
+        name = Column(String(128), nullable=False)
     else:
-    name = ""
+        name = ""

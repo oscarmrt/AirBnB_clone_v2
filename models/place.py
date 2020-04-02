@@ -9,9 +9,19 @@ from models.review import Review
 from models.amenity import Amenity
 import sqlalchemy
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, String, DateTime, Integer, Float
+from sqlalchemy import Column, String, DateTime, Integer, Float, Table
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
+
+
+if models.storage_t == 'db':
+    place_amenity = Table('place_amenity', Base.metadata,
+                          Column('place_id', String(60),
+                                 ForeignKey('places.id'), nullable=False,
+                                 primary_key=True)
+                          Colunm('amenity_id', Stirng(60),
+                                 ForeignKey('amenities.id'),
+                                 nullable=False, primary_key=True))
 
 
 class Place(BaseModel, Base):
@@ -43,7 +53,7 @@ class Place(BaseModel, Base):
         longitude = Column(Float, nullable=True)
         reviews = relationship("Review", backref="place")
         amenities = relationship("Amenity", secondary="place_amenity",
-                                 backref="place_amenities",viewonly=False)
+                                 backref="place_amenities", viewonly=False)
 
     else:
         city_id = ""
@@ -69,7 +79,7 @@ class Place(BaseModel, Base):
                 if r.place_id == self.id:
                     rlist.append = (r)
             return (rlist)
-    
+
     if models.storage_t != 'db':
         @property
         def review_method(self):
@@ -81,7 +91,7 @@ class Place(BaseModel, Base):
                 if r.place_id == self.id:
                     rlist.append = (r)
             return (rlist)
-        
+
         @property
         def amenity_method(self):
             '''Getter atribute for amenity'''
