@@ -125,4 +125,4 @@ Ex:
 
 ## License
 
-AirBnB_clone has an open source license [Open Source Definition](https://opensource.org/osd) — in brief, they allow software to be freely used, modified, and shared
+AirBnB_clone has an open source license [Open Source Definition](https://opensource.org/osd) — in brief, they allow software to be freely used, modified, and shared.
