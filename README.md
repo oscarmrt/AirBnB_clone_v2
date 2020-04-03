@@ -1,6 +1,6 @@
 # HBNB_CLONE_V2
 
-This is the console /command interpreter for the Holberton School Airbnb clone V2 project. The console can be used to store objects in and retrieve objects from a JSON.
+The first segment of the AirBnB project at Holberton School is the console, in this project we are going to share all our knowledge about higher level programming. The goal is to eventually deploy our server a simple copy of AirBnB. A command interpreter is created in this segment to store objects in and retrieve objects from a JSON.
 
 ### Supported classes:
 * BaseModel
@@ -40,6 +40,47 @@ cd AirBnB_clone_v2/
 echo "<command>" | ./console.py
 ````
 
+## Running the tests
+
+The AirBnB_clone works like this in interactive mode:
+
+```
+$ ./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+
+(hbnb) 
+(hbnb) 
+(hbnb) quit
+$
+```
+
+The AirBnB_clone works like this in non-interactive mode:
+
+```
+$ echo "help" | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+$
+$ cat test_help
+help
+$
+$ cat test_help | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+$
+```
 #### Create:
 `create <class name>`
 Ex:
@@ -75,7 +116,6 @@ Ex:
 ## Built With
 
 * [Python](https://www.python.org) - Programming language.
-
 
 
 ## Authors
