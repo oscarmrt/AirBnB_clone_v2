@@ -21,30 +21,30 @@ This is the console /command interpreter for the Holberton Airbnb clone V2 proje
 
 To start, navigate to the project folder and enter `./console.py` in the shell.
 
-#### Create
+#### Create:
 `create <class name>`
 Ex:
 `create BaseModel`
 
-#### Show
+#### Show:
 `show <class name> <object id>`
 Ex:
 `show User my_id`
 
-#### Destroy
+#### Destroy:
 `destroy <class name> <object id>`
 Ex:
 `destroy Place my_place_id`
 
-#### All
+#### All:
 `all` or `all <class name>`
 Ex:
 `all` or `all State`
 
-#### Quit
+#### Quit:
 `quit` or `EOF`
 
-#### Help
+#### Help:
 `help` or `help <command>`
 Ex:
 `help` or `help quit`
