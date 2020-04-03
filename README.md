@@ -19,7 +19,26 @@ This is the console /command interpreter for the Holberton Airbnb clone project.
 * quit/EOF - quit the console
 * help - see descriptions of commands
 
-To start, navigate to the project folder and enter `./console.py` in the shell.
+### Installing
+
+Step by step how to run HBNB
+
+*First of all clone the repository* 
+```
+git clone "https://github.com/dgquintero/AirBnB_clone_v2.git"
+```
+*Go to the directory AirBnB_clone_v2*
+```
+cd AirBnB_clone_v2/
+```
+*Run it on interactive mode*
+```
+./console.py
+```
+*Run it non-interactively*
+```
+echo "<command>" | ./console.py
+````
 
 #### Create
 `create <class name>`
