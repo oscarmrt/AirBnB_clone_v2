@@ -71,3 +71,18 @@ Ex:
 Additionally, the console supports `<class name>.<command>(<parameters>)` syntax.
 Ex:
 `City.show(my_city_id)`
+
+## Built With
+
+* [Python](https://www.python.org) - Programming language.
+
+
+
+## Authors
+* **Oscar Rodriguez** - [Github](https://github.com/oscarmrt) - [Twitter](https://twitter.com/OscaRT07)
+* **Daniel Quintero** - [Github](https://github.com/dgquintero) - [Twitter](https://twitter.com/danielq02)
+* **David Ortiz** - [Github](https://github.com/daod2003) - [Twitter](https://twitter.com/alejoortizd)
+
+## License
+
+AirBnB_clone has an open source license [Open Source Definition](https://opensource.org/osd) — in brief, they allow software to be freely used, modified, and shared
