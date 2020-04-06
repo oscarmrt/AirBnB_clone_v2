@@ -91,9 +91,3 @@ class Place(BaseModel, Base):
                 if a.place_id == self.id:
                     alist.append(a)
             return (alist)
-
-        @amenities.setter
-        def amenities(self, obj):
-            """set the ids of the amenities"""
-            if type(obj)._name_ == "Amenity":
-                self.amenity_ids.append(obj.id)
