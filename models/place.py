@@ -92,7 +92,7 @@ class Place(BaseModel, Base):
                     alist.append(a)
             return (alist)
 
-        @amenity_method.setter
+        @amenities.setter
         def amenities(self, obj):
             """set the ids of the amenities"""
             if type(obj)._name_ == "Amenity":
