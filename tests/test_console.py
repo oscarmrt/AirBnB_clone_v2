@@ -8,6 +8,8 @@ import os
 import json
 import console
 import tests
+import models
+from models.engine.db_storage import DBStorage
 from console import HBNBCommand
 from models.base_model import BaseModel
 from models.user import User
@@ -126,7 +128,7 @@ class TestConsole(unittest.TestCase):
             self.consol.onecmd("destroy BaseModel 12345")
             self.assertEqual(
                 "** no instance found **\n", f.getvalue())
-
+    @unittest.skipIf(type(models.storage) == DBStorage, "Testing DBStorage")
     def test_all(self):
         """Test all command inpout"""
         with patch('sys.stdout', new=StringIO()) as f:

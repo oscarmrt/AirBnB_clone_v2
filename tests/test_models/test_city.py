@@ -5,6 +5,8 @@ import os
 from models.city import City
 from models.base_model import BaseModel
 import pep8
+import models
+from models.engine.db_storage import DBStorage
 
 
 class TestCity(unittest.TestCase):
@@ -56,6 +58,8 @@ class TestCity(unittest.TestCase):
         self.assertEqual(type(self.city.name), str)
         self.assertEqual(type(self.city.state_id), str)
 
+    @unittest.skipIf(type(models.storage) == DBStorage,
+                     "Testing DBStorage")
     def test_save_City(self):
         """test if the save works"""
         self.city.save()
