@@ -56,7 +56,7 @@ class TestBaseModel(unittest.TestCase):
 
     @unittest.skipIf(type(models.storage) == DBStorage,
                      "Testing DBStorage")
-    def test_save_BaesModel(self):
+    def test_save_BaseModel(self):
         """test if the save works"""
         self.base.save()
         self.assertNotEqual(self.base.created_at, self.base.updated_at)
@@ -68,6 +68,19 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(base_dict['created_at'], str)
         self.assertIsInstance(base_dict['updated_at'], str)
 
+    @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') == 'db', 'file storage')
+    def test_delete_basemodel_file(self):
+        """test if delete works"""
+        self.base = BaseModel()
+        self.base.name = 'Betty'
+        del self.base
+
+    @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') == 'file', 'db storage')
+    def test_delete_basemodel_db(self):
+        """test if delete works"""
+        self.base = BaseModel()
+        self.base.name = 'Betty'
+        del self.base
 
 if __name__ == "__main__":
     unittest.main()
