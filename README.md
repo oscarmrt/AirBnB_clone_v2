@@ -1,6 +1,6 @@
 # HBNB_CLONE_V2
 
-The first segment of the AirBnB project at Holberton School is the console, in this project we are going to share all our knowledge about higher level programming. The goal is to eventually deploy our server a simple copy of AirBnB. A command interpreter is created in this segment to store objects in and retrieve objects from a JSON.
+The first segment of the AirBnB Clone project at Holberton School is the console, in this project we are going to share all our knowledge about higher level programming. The goal is to eventually deploy our server a simple copy of AirBnB. A command interpreter is created in this segment to store objects in and retrieve objects from a JSON.
 
 ### Supported classes:
 * BaseModel
