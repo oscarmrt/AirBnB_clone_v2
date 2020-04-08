@@ -4,8 +4,6 @@ import unittest
 import os
 from models.base_model import BaseModel
 import pep8
-import models
-from models.engine.db_storage import DBStorage
 
 
 class TestBaseModel(unittest.TestCase):
@@ -54,19 +52,15 @@ class TestBaseModel(unittest.TestCase):
         """test if the base is an type BaseModel"""
         self.assertTrue(isinstance(self.base, BaseModel))
 
-    @unittest.skipIf(type(models.storage) == DBStorage,
-                     "Testing DBStorage")
+    def test_new_method(self):
+        """checking if delete method was added"""
+        self.assertTrue(hasattr(BaseModel, "delete"))
+
+    @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') == 'db', 'file storage')
     def test_save_BaseModel(self):
         """test if the save works"""
         self.base.save()
         self.assertNotEqual(self.base.created_at, self.base.updated_at)
-
-    def test_to_dict_BaseModel(self):
-        """test if dictionary works"""
-        base_dict = self.base.to_dict()
-        self.assertEqual(self.base.__class__.__name__, 'BaseModel')
-        self.assertIsInstance(base_dict['created_at'], str)
-        self.assertIsInstance(base_dict['updated_at'], str)
 
     @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') == 'db', 'file storage')
     def test_delete_basemodel_file(self):
@@ -81,6 +75,14 @@ class TestBaseModel(unittest.TestCase):
         self.base = BaseModel()
         self.base.name = 'Betty'
         del self.base
+
+    def test_to_dict_BaseModel(self):
+        """test if dictionary works"""
+        base_dict = self.base.to_dict()
+        self.assertEqual(self.base.__class__.__name__, 'BaseModel')
+        self.assertIsInstance(base_dict['created_at'], str)
+        self.assertIsInstance(base_dict['updated_at'], str)
+
 
 if __name__ == "__main__":
     unittest.main()
