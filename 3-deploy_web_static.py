@@ -2,8 +2,7 @@
 
 from datetime import datetime
 from fabric.api import put, run, env, local
-from os import path
-from os.path import exists
+from os.path import exists, isdir
 env.hosts = ['54.146.199.106', '18.212.79.62']
 
 
@@ -19,7 +18,7 @@ def do_pack():
                                                             now.minute,
                                                             now.second)
 
-    if not path.isdir("versions"):
+    if not isdir("versions"):
         if local("mkdir -p versions").failed:
             return None
     if local('tar -cvzf {} web_static'.format(tarName)).failed:
