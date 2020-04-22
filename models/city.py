@@ -2,6 +2,7 @@
 """This is the city class"""
 import models
 from models.base_model import BaseModel, Base
+from models.place import Place
 import sqlalchemy
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, DateTime
@@ -15,11 +16,7 @@ class City(BaseModel, Base):
         state_id: The state id
         name: input name
     """
-    if models.storage_t == 'db':
-        __tablename__ = 'cities'
-        name = Column(String(128), nullable=False)
-        state_id = Column(String(60), ForeignKey('states.id'), nullable=False)
-        places = relationship("Place", backref="cities")
-    else:
-        state_id = ""
-        name = ""
+    __tablename__ = 'cities'
+    name = Column(String(128), nullable=False)
+    state_id = Column(String(60), ForeignKey('states.id'), nullable=False)
+    places = relationship("Place", backref="cities")
