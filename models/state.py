@@ -2,6 +2,7 @@
 """This is the state class"""
 from models.base_model import BaseModel, Base
 import sqlalchemy
+import models
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, DateTime
 from sqlalchemy import ForeignKey
