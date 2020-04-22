@@ -72,3 +72,8 @@ class FileStorage:
             self.save()
         except KeyError:
             return
+
+    def close(self):
+        """Function that deserialized the JSON file to objects
+        """
+        self.reload()

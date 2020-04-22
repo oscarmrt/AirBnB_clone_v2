@@ -15,3 +15,15 @@ class State(BaseModel, Base):
     __tablename__ = 'states'
     name = ""
     name = Column(String(128), nullable=False)
+
+    if models.storage_t != 'db':
+        @property
+        def cities(self):
+            '''Getter atribute for cities'''
+            from models.city import City
+            clist = []
+            all_c = models.storage.all(City)
+            for c in all_c.values():
+                if c.state_id == self.id:
+                    clist.append(c)
+            return (clist)
