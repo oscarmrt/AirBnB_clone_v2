@@ -68,6 +68,8 @@ button:hover {
 }
 .popover ul {
     list-style-type: none;
+    max-height: 300;
+    overflow: auto;
 }
 .amenities:hover .popover,
 .locations:hover .popover {
